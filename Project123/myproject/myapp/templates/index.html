@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SPU Café</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fdf6f0;
+      background-image: url('https://www.transparenttextures.com/patterns/cream-dust.png');
+    }
+  </style>
+</head>
+<body class="text-[#4e342e]">
+  <nav class="bg-[#fdf6f0] shadow-md px-8 py-4 flex justify-between items-center font-serif">
+    <div class="text-2xl font-bold text-[#6b4f3b]">SPU Café ☕</div>
+    <button class="text-3xl lg:hidden" onclick="toggleMenu()">☰</button>
+    <ul class="flex space-x-6 text-lg">
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">หน้าแรก</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/menu/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">เมนู</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/pro/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">โปรโมชั่น</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/re/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">รีวิว</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/contact/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">ติดต่อ</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/cart/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">ตะกร้า</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/orders/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">รายการสั่งซื้อ</a>
+    </li>
+    </ul>
+  </nav>
+  <img src="https://www.spu.ac.th/wp-content/uploads/2022/11/SPU_re.png" 
+       alt="Cafe Image" 
+       class="rounded-lg shadow-lg w-full max-w-4xl mx-auto mt-10 mb-10">
+
+  <img src="https://www.spu.ac.th/wp-content/uploads/2024/12/OT-2024_11_392_Banner-%E0%B8%88%E0%B8%B8%E0%B8%94%E0%B8%88%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B8%96%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%9B%E0%B8%A3%E0%B8%B4%E0%B8%8D%E0%B8%8D%E0%B8%B2-66-_1140x450px__1.webp" 
+       alt="Cafe Image" 
+       class="rounded-lg shadow-lg w-full max-w-4xl mx-auto mb-10">
+
+  <div class="flex flex-col md:flex-row items-center justify-center gap-10 px-8 py-12">
+
+    <div class="md:w-1/2 text-[#4e342e] font-serif md:pl-12 px-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-pink-600 mb-4">
+        มาที่ SPU Café ง่ายสุดๆ แค่นั่งรถไฟฟ้ามาลง “สถานีบางบัว” 🚆
+      </h2>
+      <p class="text-gray-800 mb-3 leading-relaxed">
+        ไม่ว่าคุณจะมาจากไหน แค่ขึ้นรถไฟฟ้าสายสีเขียวแล้วลงที่ <strong>“บางบัว”</strong> ก็ถึงหน้าร้านเราแบบสบายๆ เดินไม่กี่ก้าวก็ได้กลิ่นหอมของกาแฟแล้ว ☕
+      </p>
+      <p class="text-gray-700 leading-relaxed">
+        เสร็จคลาสเมื่อไหร่ แวะมานั่งชิลกับเพื่อนๆ ต่อได้เลย 🍰 ไม่ว่าจะอยากเมาท์มอย จิบลาเต้อุ่นๆ หรือรีบชาร์จพลังต่อก่อนเข้าเมือง —  
+        จากที่นี่ไปเมเจอร์ รัชโยธินก็แค่ 5 นาที หรือจะต่อไปเซ็นทรัลลาดพร้าว สยาม ก็แค่ 10–30 นาทีเท่านั้นเอง!
+      </p>
+      <p class="mt-4 text-pink-500 font-semibold italic">
+        แล้วคุณจะรู้ว่า "คาเฟ่ดีๆ" มันใกล้กว่าที่คิด 🍃
+      </p>
+    </div>
+
+    <div class="md:w-1/2">
+      <img src="https://lifestyle.campus-star.com/app/uploads/2022/02/LVP-Map2022-C-20220129-Thai-1086x1536.jpg" 
+           alt="แผนที่ SPU" 
+           class="rounded-lg shadow-lg w-full md:w-[600px] h-auto mx-auto" />
+    </div>
+  </div>
+  
+
+  <footer class="bg-[#4e342e] text-white text-center py-6 mt-16 text-sm leading-relaxed font-serif">
+    <p>
+      SPU Café – ร้านกาแฟสุดอบอุ่นในมหาวิทยาลัยศรีปทุม ☕
+    </p>
+    <p class="mt-1">
+      เปิดบริการทุกวัน จันทร์–ศุกร์ เวลา 8:00–17:00 น. โทร : 01-234-5678
+    </p>
+    <p class="mt-1">
+      ติดต่อสอบถามหรือจองที่นั่ง Line ID : <span class="text-pink-300">@spucafe</span> หรือ Instagram: <span class="text-pink-300">@spu.cafe</span>
+    </p>
+  </footer>
+  
+</body>
+</html>

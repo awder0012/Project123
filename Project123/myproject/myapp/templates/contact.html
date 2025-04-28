@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ติดต่อเรา - SPU Café</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fdf6f0;
+      background-image: url('https://www.transparenttextures.com/patterns/cream-dust.png');
+    }
+  </style>
+</head>
+<body class="text-[#4e342e]">
+  <nav class="bg-[#fdf6f0] shadow-md px-8 py-4 flex justify-between items-center font-serif">
+    <div class="text-2xl font-bold text-[#6b4f3b]">SPU Café ☕</div>
+    <button class="text-3xl lg:hidden" onclick="toggleMenu()">☰</button>
+    <ul class="flex space-x-6 text-lg">
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">หน้าแรก</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/menu/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">เมนู</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/pro/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">โปรโมชั่น</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/re/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">รีวิว</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/contact/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">ติดต่อ</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/cart/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">ตะกร้า</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/orders/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">รายการสั่งซื้อ</a>
+    </li>
+    </ul>
+  </nav>
+
+<section class="px-6 py-12 max-w-5xl mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-10">📞 ติดต่อเรา</h2>
+
+  <div class="grid md:grid-cols-2 gap-10">
+
+    <div class="bg-white rounded-xl shadow-md p-6">
+      <h3 class="text-xl font-semibold mb-4">📍 ที่อยู่</h3>
+      <p>SPU Café, มหาวิทยาลัยศรีปทุม<br>เลขที่ 2410/2 ถนนพหลโยธิน แขวงเสนานิคม เขตจตุจักร กรุงเทพฯ 10900</p>
+
+      <h3 class="text-xl font-semibold mt-6 mb-2">📞 เบอร์โทร</h3>
+      <p>01-234-5678</p>
+
+      <h3 class="text-xl font-semibold mt-6 mb-2">📧 อีเมล</h3>
+      <p>contact@spucafe.com</p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-md p-6">
+      <h3 class="text-xl font-semibold mb-4">ส่งข้อความหาเรา</h3>
+      <form onsubmit="handleSubmit(event)">
+        <label class="block mb-2">ชื่อของคุณ</label>
+        <input type="text" required class="w-full p-2 mb-4 border rounded" />
+
+        <label class="block mb-2">อีเมล</label>
+        <input type="email" required class="w-full p-2 mb-4 border rounded" />
+
+        <label class="block mb-2">ข้อความ</label>
+        <textarea required rows="5" class="w-full p-2 mb-4 border rounded"></textarea>
+
+        <button type="submit" class="px-4 py-2 bg-[#6b4f3b] text-white rounded-full hover:bg-[#4e342e] transition">
+          ส่งข้อความ
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<div id="toast" class="fixed bottom-5 right-5 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg hidden z-50">
+  ✅ ส่งข้อความเรียบร้อยแล้ว!
+</div>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefault();
+    showToast("✅ ส่งข้อความเรียบร้อยแล้ว!");
+    event.target.reset();
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.remove("hidden");
+    setTimeout(() => {
+      toast.classList.add("hidden");
+    }, 3000);
+  }
+</script>
+<footer class="bg-[#4e342e] text-white text-center py-6 mt-16 text-sm leading-relaxed font-serif">
+  <p>
+    SPU Café – ร้านกาแฟสุดอบอุ่นในมหาวิทยาลัยศรีปทุม ☕
+  </p>
+  <p class="mt-1">
+    เปิดบริการทุกวัน จันทร์–ศุกร์ เวลา 8:00–17:00 น. โทร : 01-234-5678
+  </p>
+  <p class="mt-1">
+    ติดต่อสอบถามหรือจองที่นั่ง Line ID : <span class="text-pink-300">@spucafe</span> หรือ Instagram: <span class="text-pink-300">@spu.cafe</span>
+  </p>
+</footer>
+
+</body>
+</html>

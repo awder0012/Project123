@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SPU Café</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fdf6f0;
+      background-image: url('https://www.transparenttextures.com/patterns/cream-dust.png');
+    }
+  </style>
+</head>
+<body class="text-[#4e342e]">
+
+
+  <nav class="bg-[#fdf6f0] shadow-md px-8 py-4 flex justify-between items-center font-serif">
+    <div class="text-2xl font-bold text-[#6b4f3b]">SPU Café ☕</div>
+    <button class="text-3xl lg:hidden" onclick="toggleMenu()">☰</button>
+    <ul class="flex space-x-6 text-lg">
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">หน้าแรก</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/menu/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">เมนู</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/pro/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">โปรโมชั่น</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/re/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">รีวิว</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/contact/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">ติดต่อ</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/cart/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">ตะกร้า</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/orders/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">รายการสั่งซื้อ</a>
+    </li>
+    </ul>
+  </nav>
+<section class="py-16 px-6 max-w-6xl mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-10 text-[#6b4f3b]">💬 รีวิวจากลูกค้าของเรา</h2>
+  
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"กาแฟอร่อยมาก! หอมละมุน ราคาน่ารัก บริการก็ดีมากค่ะ"</p>
+      <div class="mt-4 text-sm text-gray-600">- พิมพ์ชนก, นักศึกษา</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"ชอบบรรยากาศร้านมากๆ เหมาะกับการนั่งทำงานหรืออ่านหนังสือสุดๆ"</p>
+      <div class="mt-4 text-sm text-gray-600">- นัทธพงศ์, ฟรีแลนซ์</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"เค้กอร่อย กาแฟดี เพลงเพราะ ร้านตกแต่งน่ารักด้วยค่ะ"</p>
+      <div class="mt-4 text-sm text-gray-600">- จิราภรณ์, ข้าราชการ</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"สั่งกลับบ้านก็บริการไว รสชาติดีไม่เปลี่ยนเลยครับ"</p>
+      <div class="mt-4 text-sm text-gray-600">- ธนา, พนักงานออฟฟิศ</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"ประทับใจมากค่ะ พนักงานยิ้มแย้ม อัธยาศัยดีมากๆ"</p>
+      <div class="mt-4 text-sm text-gray-600">- วิลาสินี, ครู</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"กาแฟเย็นคาราเมลคือดีมากกกกก ชอบมากครับ ☕✨"</p>
+      <div class="mt-4 text-sm text-gray-600">- กิตติภูมิ, นักเรียน</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"กาแฟลาเต้หอมมาก บรรยากาศร้านก็อบอุ่น เหมือนนั่งที่บ้านเลยค่ะ"</p>
+      <div class="mt-4 text-sm text-gray-600">- สุภาวดี, นักศึกษา</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"พนักงานน่ารัก ยิ้มแย้มเสมอ แนะนำเมนูได้ดีมากครับ"</p>
+      <div class="mt-4 text-sm text-gray-600">- วิศรุต, นักเขียน</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"เค้กช็อกโกแลตนุ่มมากกกก กินกับอเมริกาโน่คือฟิน!"</p>
+      <div class="mt-4 text-sm text-gray-600">- กัญญา, เจ้าของร้าน</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"ร้านน่ารัก ถ่ายรูปมุมไหนก็สวย เหมาะกับสาย Café hopping สุดๆ"</p>
+      <div class="mt-4 text-sm text-gray-600">- พราว, Blogger</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"ชาเขียวมัทฉะหอมกลมกล่อมมากค่ะ จะกลับไปซ้ำอีกแน่นอน"</p>
+      <div class="mt-4 text-sm text-gray-600">- ธิดารัตน์, พนักงานบริษัท</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"อาหารทานเล่นอร่อยมาก กาแฟก็ดีงาม ราคาก็ไม่แพง!"</p>
+      <div class="mt-4 text-sm text-gray-600">- ภูวเดช, พ่อค้า</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"สั่งผ่านเว็บก็สะดวกดีค่ะ ไม่ต้องรอคิวที่ร้าน"</p>
+      <div class="mt-4 text-sm text-gray-600">- ณัฐวดี, Freelance</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"ขนมปังปิ้งเนยนมคือดีมากกก หวานพอดีไม่เลี่ยนเลย"</p>
+      <div class="mt-4 text-sm text-gray-600">- สุเมธ, นักเรียน</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"เมนูหลากหลาย ไม่เบื่อเลยค่ะ ชอบเปลี่ยนเมนูใหม่ๆ บ่อยดี"</p>
+      <div class="mt-4 text-sm text-gray-600">- อาภาพร, ครู</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"คาปูชิโน่อร่อย กลิ่นหอม รสชาติเข้มข้น ร้านนี้ดีจริงๆ"</p>
+      <div class="mt-4 text-sm text-gray-600">- ณัฐพล, Programmer</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"เหมาะกับการมานั่งอ่านหนังสือ ทำโปรเจกต์มากๆครับ เงียบสงบดี"</p>
+      <div class="mt-4 text-sm text-gray-600">- ศิริวัฒน์, นักศึกษา</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="text-gray-700 italic">"บริการรวดเร็ว ไม่ต้องรอนาน กาแฟก็ดี๊ดี~"</p>
+      <div class="mt-4 text-sm text-gray-600">- เบญญา, คุณแม่บ้าน</div>
+    </div>
+  </div>
+</section>
+  <script>
+    function addToCart() {
+      const modal = document.getElementById("menuModal");
+      const item = JSON.parse(modal.dataset.item);
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(item);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${item.title} ถูกเพิ่มลงในตะกร้าแล้ว`);
+      closeModal();
+    }
+  </script>
+    <footer class="bg-[#4e342e] text-white text-center py-6 mt-16 text-sm leading-relaxed font-serif">
+      <p>
+        SPU Café – ร้านกาแฟสุดอบอุ่นในมหาวิทยาลัยศรีปทุม ☕
+      </p>
+      <p class="mt-1">
+        เปิดบริการทุกวัน จันทร์–ศุกร์ เวลา 8:00–17:00 น. โทร : 01-234-5678
+      </p>
+      <p class="mt-1">
+        ติดต่อสอบถามหรือจองที่นั่ง Line ID : <span class="text-pink-300">@spucafe</span> หรือ Instagram: <span class="text-pink-300">@spu.cafe</span>
+      </p>
+    </footer>
+  

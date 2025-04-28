@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ตะกร้าสินค้า - SPU Café</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fdf6f0;
+      background-image: url('https://www.transparenttextures.com/patterns/cream-dust.png');
+    }
+  </style>
+</head>
+<body class="text-[#4e342e]">
+  <nav class="bg-[#fdf6f0] shadow-md px-8 py-4 flex justify-between items-center font-serif">
+    <div class="text-2xl font-bold text-[#6b4f3b]">SPU Café ☕</div>
+    <button class="text-3xl lg:hidden" onclick="toggleMenu()">☰</button>
+    <ul class="flex space-x-6 text-lg">
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">หน้าแรก</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/menu/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">เมนู</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/pro/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">โปรโมชั่น</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/re/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">รีวิว</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/contact/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">ติดต่อ</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/cart/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">ตะกร้า</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/orders/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">รายการสั่งซื้อ</a>
+    </li>
+    </ul>
+  </nav>
+  
+<section class="px-8 py-12 max-w-4xl mx-auto">
+  <h2 class="text-2xl font-bold mb-6 text-center">ตะกร้าสินค้าของคุณ</h2>
+  <div id="cartItems" class="space-y-4"></div>
+  
+
+  <div class="mt-8 text-right text-xl font-bold">
+    รวมทั้งหมด: <span id="totalPrice">0</span> บาท
+  </div>
+
+  <div class="mt-6 text-center">
+    <button onclick="window.location.href='/order/'"
+      class="px-6 py-3 bg-[#6b4f3b] text-white rounded-full text-lg hover:bg-[#4e342e] transition">
+      🛍️ สั่งซื้อสินค้า
+    </button>
+  </div>
+  
+</section>
+
+<div id="orderToast" class="fixed bottom-5 right-5 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg hidden z-50">
+  ✅ สั่งซื้อเรียบร้อย! ขอบคุณที่ใช้บริการ SPU Café
+</div>
+
+<script>
+  function loadCart() {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartDiv = document.getElementById("cartItems");
+    cartDiv.innerHTML = "";
+
+    let total = 0;
+
+    if (cartItems.length === 0) {
+      cartDiv.innerHTML = "<p class='text-center text-gray-600'>ยังไม่มีสินค้าในตะกร้า</p>";
+      document.getElementById("totalPrice").textContent = "0";
+      return;
+    }
+
+    cartItems.forEach((item, index) => {
+      total += item.price;
+
+      const itemDiv = document.createElement("div");
+      itemDiv.className = "bg-white shadow-md p-4 rounded-md flex justify-between items-center";
+
+      itemDiv.innerHTML = `
+        <div>
+          <p class="font-semibold">${item.title}</p>
+          <p class="text-sm text-gray-500">${item.desc}</p>
+        </div>
+        <div class="text-right">
+          <p class="font-semibold">${item.price} บาท</p>
+          <button onclick="removeItem(${index})" class="text-red-500 text-sm hover:underline mt-1">ลบ</button>
+        </div>
+      `;
+      cartDiv.appendChild(itemDiv);
+    });
+
+    document.getElementById("totalPrice").textContent = total;
+  }
+
+  function removeItem(index) {
+    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    cartItems.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    loadCart();
+  }
+
+  function placeOrder() {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cartItems.length === 0) {
+      alert("ยังไม่มีสินค้าในตะกร้า");
+      return;
+    }
+
+    localStorage.removeItem("cart");
+
+    const toast = document.getElementById("orderToast");
+    toast.classList.remove("hidden");
+    setTimeout(() => {
+      toast.classList.add("hidden");
+    }, 3000);
+
+    loadCart();
+  }
+
+  loadCart();
+
+</script>
+
+
+</body>
+</html>

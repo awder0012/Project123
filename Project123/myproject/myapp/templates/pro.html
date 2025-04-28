@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>โปรโมชั่น - SPU Café</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fdf6f0;
+      background-image: url('https://www.transparenttextures.com/patterns/cream-dust.png');
+    }
+  </style>
+</head>
+<body class="text-[#4e342e]">
+
+
+  <nav class="bg-[#fdf6f0] shadow-md px-8 py-4 flex justify-between items-center font-serif">
+    <div class="text-2xl font-bold text-[#6b4f3b]">SPU Café ☕</div>
+    <button class="text-3xl lg:hidden" onclick="toggleMenu()">☰</button>
+    <ul class="flex space-x-6 text-lg">
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">หน้าแรก</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/menu/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">เมนู</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/pro/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">โปรโมชั่น</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/re/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">รีวิว</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/contact/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">ติดต่อ</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/cart/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">ตะกร้า</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/orders/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">รายการสั่งซื้อ</a>
+    </li>
+    </ul>
+  </nav>
+<section class="px-6 py-12">
+  <h2 class="text-center text-3xl font-bold mb-10">🎉 โปรโมชั่นสุดพิเศษ</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+
+    <div class="bg-white rounded-xl shadow-md p-4 text-center">
+      <img src="https://i.pinimg.com/736x/e3/83/f9/e383f9aba12fcabbffd116323690fb57.jpg" class="rounded-lg shadow mb-3 mx-auto">
+      <h3 class="text-xl font-semibold">Latte</h3>
+      <p class="text-gray-600">จาก <span class="line-through">75</span> บาท</p>
+      <p class="text-[#4e342e] text-2xl font-bold mb-3">64 บาท</p>
+      <button onclick="addToCart('Latte', 'เอสเพรสโซ่ + นมสดอุ่น', 64)" class="px-4 py-2 bg-[#6b4f3b] text-white rounded-full hover:bg-[#4e342e] transition">สั่งซื้อ</button>
+    </div>
+
+
+    <div class="bg-white rounded-xl shadow-md p-4 text-center">
+      <img src="https://i.pinimg.com/736x/cb/48/db/cb48db04009801523739569e0f33cfc3.jpg" class="rounded-lg shadow mb-3 mx-auto">
+      <h3 class="text-xl font-semibold">Americano</h3>
+      <p class="text-gray-600">จาก <span class="line-through">60</span> บาท</p>
+      <p class="text-[#4e342e] text-2xl font-bold mb-3">51 บาท</p>
+      <button onclick="addToCart('Americano', 'เอสเพรสโซ่ + น้ำร้อน', 51)" class="px-4 py-2 bg-[#6b4f3b] text-white rounded-full hover:bg-[#4e342e] transition">สั่งซื้อ</button>
+    </div>
+
+  </div>
+</section>
+
+
+<div id="toast" class="fixed bottom-5 right-5 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg hidden z-50">
+  ✅ เพิ่มสินค้าในตะกร้าแล้ว
+</div>
+
+
+<script>
+  function addToCart(title, desc, price) {
+    const item = { title, desc, price };
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(item);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    showToast("✅ เพิ่ม " + item.title + " ในตะกร้าแล้ว!");
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.remove("hidden");
+    setTimeout(() => {
+      toast.classList.add("hidden");
+    }, 3000);
+  }
+</script>
+<footer class="bg-[#4e342e] text-white text-center py-6 mt-16 text-sm leading-relaxed font-serif">
+  <p>
+    SPU Café – ร้านกาแฟสุดอบอุ่นในมหาวิทยาลัยศรีปทุม ☕
+  </p>
+  <p class="mt-1">
+    เปิดบริการทุกวัน จันทร์–ศุกร์ เวลา 8:00–17:00 น. โทร : 01-234-5678
+  </p>
+  <p class="mt-1">
+    ติดต่อสอบถามหรือจองที่นั่ง Line ID : <span class="text-pink-300">@spucafe</span> หรือ Instagram: <span class="text-pink-300">@spu.cafe</span>
+  </p>
+</footer>
+
+</body>
+</html>

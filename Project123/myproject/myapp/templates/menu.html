@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SPU Café</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fdf6f0;
+      background-image: url('https://www.transparenttextures.com/patterns/cream-dust.png');
+    }
+  </style>
+</head>
+<body class="text-[#4e342e]">
+  <nav class="bg-[#fdf6f0] shadow-md px-8 py-4 flex justify-between items-center font-serif">
+    <div class="text-2xl font-bold text-[#6b4f3b]">SPU Café ☕</div>
+    <button class="text-3xl lg:hidden" onclick="toggleMenu()">☰</button>
+    <ul class="flex space-x-6 text-lg">
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">หน้าแรก</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/menu/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">เมนู</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/pro/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">โปรโมชั่น</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/re/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">รีวิว</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/contact/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">ติดต่อ</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/cart/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">ตะกร้า</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/orders/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">รายการสั่งซื้อ</a>
+    </li>
+    </ul>
+  </nav>
+<section class="px-8 py-12">
+  <h2 class="text-center text-2xl md:text-3xl font-bold mb-10">เมนูยอดนิยม</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
+    <div class="text-center">
+      <img onclick="openModal('Latte', 'เอสเพรสโซ่ + นมสดอุ่น', 75)" src="https://i.pinimg.com/736x/e3/83/f9/e383f9aba12fcabbffd116323690fb57.jpg" class="rounded-lg shadow-md hover:scale-105 transition cursor-pointer">
+      <p class="mt-3 font-semibold">Latte</p>
+      <button onclick="openModal('Latte', 'เอสเพรสโซ่ + นมสดอุ่น', 75)" class="mt-2 px-4 py-1 bg-[#6b4f3b] text-white rounded-full hover:bg-[#4e342e] transition">สั่งซื้อ</button>
+    </div>
+
+    <div class="text-center">
+      <img onclick="openModal('Americano', 'เอสเพรสโซ่ + น้ำร้อน', 60)" src="https://i.pinimg.com/736x/cb/48/db/cb48db04009801523739569e0f33cfc3.jpg" class="rounded-lg shadow-md hover:scale-105 transition cursor-pointer">
+      <p class="mt-3 font-semibold">Americano</p>
+      <button onclick="openModal('Americano', 'เอสเพรสโซ่ + น้ำร้อน', 60)" class="mt-2 px-4 py-1 bg-[#6b4f3b] text-white rounded-full hover:bg-[#4e342e] transition">สั่งซื้อ</button>
+    </div>
+
+    <div class="text-center">
+      <img onclick="openModal('Cappuccino', 'เอสเพรสโซ่ + นมอุ่น + โฟมนม', 70)" src="https://i.pinimg.com/736x/c6/13/db/c613db31f6f704f762fccc951c1d670d.jpg" class="rounded-lg shadow-md hover:scale-105 transition cursor-pointer">
+      <p class="mt-3 font-semibold">Cappuccino</p>
+      <button onclick="openModal('Cappuccino', 'เอสเพรสโซ่ + นมอุ่น + โฟมนม', 70)" class="mt-2 px-4 py-1 bg-[#6b4f3b] text-white rounded-full hover:bg-[#4e342e] transition">สั่งซื้อ</button>
+    </div>
+
+    <div class="text-center">
+      <img onclick="openModal('Mocha', 'เอสเพรสโซ่ + ช็อกโกแลต + นมสด', 85)" src="https://i.pinimg.com/736x/fb/19/08/fb1908b420eee76ec0d36ef3ce999e31.jpg" class="rounded-lg shadow-md hover:scale-105 transition cursor-pointer">
+      <p class="mt-3 font-semibold">Mocha</p>
+      <button onclick="openModal('Mocha', 'เอสเพรสโซ่ + ช็อกโกแลต + นมสด', 85)" class="mt-2 px-4 py-1 bg-[#6b4f3b] text-white rounded-full hover:bg-[#4e342e] transition">สั่งซื้อ</button>
+    </div>
+
+    <div class="text-center">
+      <img onclick="openModal('Espresso Martini', 'เอสเพรสโซ่ + วอดก้า + คาลัวร์ (เฉพาะ 18+)', 120)" src="https://i.pinimg.com/736x/56/2c/72/562c72258129410628dfc0b6425588f3.jpg" class="rounded-lg shadow-md hover:scale-105 transition cursor-pointer">
+      <p class="mt-3 font-semibold">Espresso Martini</p>
+      <button onclick="openModal('Espresso Martini', 'เอสเพรสโซ่ + วอดก้า + คาลัวร์ (เฉพาะ 18+)', 120)" class="mt-2 px-4 py-1 bg-[#6b4f3b] text-white rounded-full hover:bg-[#4e342e] transition">สั่งซื้อ</button>
+    </div>
+
+    <div class="text-center">
+      <img onclick="openModal('Espresso', 'ช็อตกาแฟเข้มข้น ขนาดเล็ก', 55)" src="https://i.pinimg.com/736x/4c/28/e2/4c28e2420bf38c50120dba0cbaf42e8d.jpg" class="rounded-lg shadow-md hover:scale-105 transition cursor-pointer">
+      <p class="mt-3 font-semibold">Espresso</p>
+      <button onclick="openModal('Espresso', 'ช็อตกาแฟเข้มข้น ขนาดเล็ก', 55)" class="mt-2 px-4 py-1 bg-[#6b4f3b] text-white rounded-full hover:bg-[#4e342e] transition">สั่งซื้อ</button>
+    </div>
+    
+    <div class="text-center">
+      <img onclick="openModal('Cake Chocolate', 'เค้กช็อกโกแลต', 55)" src="https://i.pinimg.com/736x/6b/f9/db/6bf9db0a3768792de18d894ff8d1a049.jpg" class="rounded-lg shadow-md hover:scale-105 transition cursor-pointer">
+      <p class="mt-3 font-semibold">Cake Chocolate</p>
+      <button onclick="openModal('Cake Chocolate', 'เค้กช็อกโกแลตนุ่มมากกกก', 55)" class="mt-2 px-4 py-1 bg-[#6b4f3b] text-white rounded-full hover:bg-[#4e342e] transition">สั่งซื้อ</button>
+    </div>
+    
+    <div class="text-center">
+      <img onclick="openModal('Orange Cake', 'เค้กส้ม', 40)" src="https://i.pinimg.com/736x/91/1c/63/911c630959f9b2b147a7f77ae92a9368.jpg" class="rounded-lg shadow-md hover:scale-105 transition cursor-pointer">
+      <p class="mt-3 font-semibold">Orange Cake</p>
+      <button onclick="openModal('Orange Cake', 'เค้กส้ม', 40)" class="mt-2 px-4 py-1 bg-[#6b4f3b] text-white rounded-full hover:bg-[#4e342e] transition">สั่งซื้อ</button>
+    </div>
+
+  </div>
+</section>
+
+<div id="menuModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50">
+  <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full relative" data-item="">
+    <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-500 hover:text-red-600 text-2xl">&times;</button>
+    <h3 id="modalTitle" class="text-xl font-bold mb-2">ชื่อเมนู</h3>
+    <p id="modalDesc" class="text-gray-700 mb-3">รายละเอียดเมนู</p>
+    <p id="modalPrice" class="text-[#4e342e] font-semibold">ราคา</p>
+    <button onclick="addToCart()" class="mt-4 px-4 py-2 bg-[#6b4f3b] text-white rounded-lg hover:bg-[#4e342e] transition">เพิ่มลงตะกร้า</button>
+  </div>
+</div>
+
+<div id="toast" class="fixed bottom-5 right-5 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg hidden z-50">
+  ✅ เพิ่มสินค้าในตะกร้าแล้ว
+</div>
+
+<script>
+  function openModal(title, desc, price) {
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalDesc").innerText = desc;
+    document.getElementById("modalPrice").innerText = "ราคา: " + price + " บาท";
+    document.getElementById("menuModal").dataset.item = JSON.stringify({ title, desc, price });
+    document.getElementById("menuModal").classList.remove("hidden");
+  }
+
+  function closeModal() {
+    document.getElementById("menuModal").classList.add("hidden");
+  }
+
+  function addToCart() {
+    const modal = document.getElementById("menuModal");
+    const item = JSON.parse(modal.dataset.item);
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(item);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    showToast("✅ เพิ่ม " + item.title + " ในตะกร้าแล้ว!");
+    closeModal();
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.remove("hidden");
+    setTimeout(() => {
+      toast.classList.add("hidden");
+    }, 3000);
+  }
+</script>
+<footer class="bg-[#4e342e] text-white text-center py-6 mt-16 text-sm leading-relaxed font-serif">
+  <p>
+    SPU Café – ร้านกาแฟสุดอบอุ่นในมหาวิทยาลัยศรีปทุม ☕
+  </p>
+  <p class="mt-1">
+    เปิดบริการทุกวัน จันทร์–ศุกร์ เวลา 8:00–17:00 น. โทร : 01-234-5678
+  </p>
+  <p class="mt-1">
+    ติดต่อสอบถามหรือจองที่นั่ง Line ID : <span class="text-pink-300">@spucafe</span> หรือ Instagram: <span class="text-pink-300">@spu.cafe</span>
+  </p>
+</footer>
+
+</body>
+</html>

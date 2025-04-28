@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
+
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: #fdf6ec;
+    color: #4e342e;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h3 {
+    font-weight: bold;
+    color: #3e2723;
+}
+
+.navbar {
+    background: linear-gradient(to right, #a1887f, #6d4c41); /* น้ำตาลอ่อนถึงเข้ม */
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+    color: #fff8e1;
+    font-weight: bold;
+    padding: 8px 15px;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.navbar a:hover {
+    color: #ffe082;
+    transform: scale(1.05);
+}
+
+.hero-section {
+    background-image: url('https://i.pinimg.com/736x/4d/9e/29/4d9e29361d4dcdc6eabf5a0a035c900d.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    padding: 20px;
+}
+
+.card {
+    background-color: #fffaf0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button {
+    background-color: #6d4c41;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border: none;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #5d4037;
+}
+
+.image-container img,
+.gallery-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.bg-secondary {
+    background-color: #d7ccc8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3e2723;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInAnimation 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

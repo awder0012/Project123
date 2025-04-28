@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ยืนยันคำสั่งซื้อ - SPU Café</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fdf6f0;
+      background-image: url('https://www.transparenttextures.com/patterns/cream-dust.png');
+    }
+  </style>
+</head>
+<body class="text-[#4e342e]">
+
+  <nav class="bg-[#fdf6f0] shadow-md px-8 py-4 flex justify-between items-center font-serif">
+    <div class="text-2xl font-bold text-[#6b4f3b]">SPU Café ☕</div>
+    <button class="text-3xl lg:hidden" onclick="toggleMenu()">☰</button>
+    <ul class="flex space-x-6 text-lg">
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">หน้าแรก</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/menu/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">เมนู</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/pro/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">โปรโมชั่น</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/re/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">รีวิว</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/contact/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">ติดต่อ</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/cart/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">ตะกร้า</a>
+      </li>
+      <li class="transition-transform duration-200 hover:scale-110">
+        <a href="/orders/" class="hover:text-[#a1887f] font-bold hover:text-xl transition-all duration-300">รายการสั่งซื้อ</a>
+    </li>
+    </ul>
+  </nav>
+
+<section class="px-8 py-6 max-w-xl mx-auto">
+  <h2 class="text-xl font-bold mb-3">คุณสั่งซื้อสินค้า:</h2>
+  <ul id="orderList" class="list-disc list-inside text-lg text-pink-600 font-semibold mb-6">
+  </ul>
+</section>
+
+<section class="px-8 py-6 max-w-xl mx-auto">
+  <form id="orderForm" onsubmit="submitOrder(event)" class="space-y-5 bg-white p-6 rounded-lg shadow-md">
+    <div>
+      <label class="block font-semibold mb-1">ชื่อ-นามสกุล</label>
+      <input type="text" name="fullname" class="w-full px-4 py-2 border border-gray-300 rounded" required />
+    </div>
+    <div>
+      <label class="block font-semibold mb-1">ที่อยู่ในการจัดส่ง</label>
+      <textarea name="address" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded" required></textarea>
+    </div>
+    <div>
+      <label class="block font-semibold mb-1">เบอร์โทรศัพท์</label>
+      <input type="tel" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded" required />
+    </div>
+    <div>
+      <label class="block font-semibold mb-1">วิธีชำระเงิน</label>
+      <select name="payment" class="w-full px-4 py-2 border border-gray-300 rounded" required>
+        <option value="">-- กรุณาเลือก --</option>
+        <option value="cod">ชำระเงินปลายทาง</option>
+        <option value="bank">โอนผ่านธนาคาร</option>
+        <option value="promptpay">ชำระผ่านพร้อมเพย์</option>
+      </select>
+    </div>
+    <div class="text-center pt-4">
+      <button type="submit" class="bg-[#6b4f3b] text-white px-6 py-2 rounded-full hover:bg-[#4e342e] transition">
+        📦 ยืนยันการสั่งซื้อ
+      </button>
+    </div>
+  </form>
+
+  <div id="successMsg" class="hidden mt-6 text-center text-green-600 font-semibold">
+    ✅ ขอบคุณสำหรับการสั่งซื้อ! เราจะติดต่อคุณเร็วๆ นี้
+  </div>
+</section>
+
+<script>
+  const orderList = document.getElementById("orderList");
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (cartItems.length === 0) {
+    orderList.innerHTML = '<li class="text-red-500">ยังไม่มีสินค้าในตะกร้า</li>';
+  } else {
+    cartItems.forEach((item, index) => {
+      const li = document.createElement("li");
+      li.textContent = `${index + 1}. ${item.title} - ${item.price} บาท`;
+      orderList.appendChild(li);
+    });
+  }
+
+  async function submitOrder(event) {
+    event.preventDefault();
+    const form = document.getElementById("orderForm");
+    const fullname = form.fullname.value;
+    const address = form.address.value;
+    const phone = form.phone.value;
+    const payment = form.payment.value;
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cartItems.length === 0) {
+      alert("ยังไม่มีสินค้าในตะกร้า กรุณาเลือกสินค้าก่อนสั่งซื้อ");
+      return;
+    }
+
+    const orderData = {
+      fullname,
+      address,
+      phone,
+      payment,
+      cart: cartItems
+    };
+
+    try {
+      const res = await fetch("/submit_order/", { 
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderData)
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        document.getElementById("successMsg").classList.remove("hidden");
+        form.reset();
+        localStorage.removeItem("cart");
+        orderList.innerHTML = "";
+      } else {
+        alert("ส่งคำสั่งซื้อไม่สำเร็จ: " + result.message);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert("เกิดข้อผิดพลาดขณะส่งข้อมูล");
+    }
+  }
+</script>
+
+
+</body>
+</html>
