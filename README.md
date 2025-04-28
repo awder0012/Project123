@@ -14,6 +14,7 @@
 ![หน้าเว็บร้าน](images/A2.png)
 ![เมนูแนะนำ](images/A1.png)
 ![ตัวอย่างกดสั่งซื้อ](images/A3.png)
-![รายการซื้อ](images/A4.png)
+![คำสั่งซื้อ](images/A4.png)
+![รายการซื้อ](images/A5.png)
 
 
